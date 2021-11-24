@@ -1,4 +1,4 @@
-@extends('partials.nav2')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -15,15 +15,15 @@
                         </div> 
                         <div class="row">
                             <div class="col">
-                                <p class="text-muted">121212</p>
-                                <p class="text-muted">Pensi Tahunan</p>
-                                <p class="text-muted">07-27-2021</p>
-                                <p class="text-muted">AB</p>
-                                <p class="text-muted">Tersedia</p>   
+                                <p class="text-muted">101213</p>
+                                <p class="text-muted">merayakan HUT RI-76</p>
+                                <p class="text-muted">17-08-2021</p>
+                                <p class="text-muted">Seluruh siswa/i Smk Al-Bahri</p>
+                                <p class="text-muted">Sanz Tapi enakeunnnnn</p>   
                            </div>
                         </div>
                     </div>
-                    <h5 class=" text-muted">Hallo , Yuk datang dan ramaikan acara pensi tahunan Yang diselanggarakan untuk memperingati Ulang Tahun Sekolah kita dijamin seru loh..!</h5   >
+                    <p class=" text-muted">Hii semuanya.. Mari ramaikan kegiatan  ini dan bersenang senang hayyyuuuukkkk....!</p   >
             </div>
             <div class="row">
                 <div class="card ml-5" style="height: 19rem; width:46rem; border-radius: 8px;">
@@ -76,8 +76,8 @@
                              </div>
                        </div>
                   </div>
-                        <button class="btn-outline-success btn-md mt-4" style="padding: 5px; border-radius: 5px; width:11.5rem; border-width: thin;
-                         border-color:#c2c1be; cursor: pointer;">Simpan Perubahan</button>
+                        <button class="btn btn-outline-success btn-md mt-4" style="padding: 5px; border-radius: 5px; width:11.5rem; border-width: thin;
+                          cursor: pointer;">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>

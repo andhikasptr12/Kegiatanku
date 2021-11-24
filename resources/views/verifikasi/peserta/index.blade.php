@@ -4,7 +4,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"> Data Siswa</li> 
+                <li class="breadcrumb-item active" aria-current="page">Verifikasi Pendaftaran</li> 
                </ol>
              </nav>
         <div class="row">
@@ -12,8 +12,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
-                            <a href="{{route('tambah-data.siswa')}}" class="btn btn-secondary">Tambah Siswa</a>
+                            <a href="{{route('verifikasi-pendaftaran.ulang')}}" class="btn btn-secondary">Daftar Ulang</a>
+                            <a href="{{route('verifikasi-pendaftaran.peserta')}}" class="btn btn-secondary">Peserta</a>
                         </div>
+
                         <form action="" method="post">
                             <div class="row">
                                 <div class="col-md-3">
@@ -26,35 +28,39 @@
                                         <input type="date" class="form-control">
                                     </div>
                                 </div>
-                                <div>
-                                    <button class="btn btn-secondary" type="submit">Cari Data</button>
-                                </div>
+                               
                             </div>
                         </form>
+
                         <div class="mt-3">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Kode Kegiatan</th>
                                         <th>NISN</th>
-                                        <th>Nama Siswa</th>
-                                        <th>Kelas</th>
-                                        <th>Jurusan</th>
+                                        <th>Nama</th>
+                                        <th>TGL Daftar</th>
                                         <th>Status</th>
                                         <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($registers as $register)
                                     <tr>
-                                        <td>1933371</td>
-                                        <td>Dikong</td>
-                                        <td>XII</td>
-                                        <td>RPL</td>
-                                        <td>Aktif</td>
+                                        <td>{{$register->activity->kode_activity}}</td>
+                                        <td>belum</td>
+                                        <td>{{$register->user->name}}</td>
+                                        <td>{{$register->created_at}}</td>
+                                        
                                         <td>
-                                            <a href="{{route('edit-data.siswa')}}" class="btn btn-warning btn-sm">Edit</a>
-                                            <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
+                                            <span class="badge badge-info">
+                                                {{$register->status}}</td>
+                                            </span>       
+                                        <td>
+                                            <button type="submit" class=" btn btn-info btn-sm">Cetak Sertifikat</button>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
