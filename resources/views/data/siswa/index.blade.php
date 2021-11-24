@@ -44,17 +44,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($students as $student)
                                     <tr>
-                                        <td>1933371</td>
-                                        <td>Dikong</td>
-                                        <td>XII</td>
-                                        <td>RPL</td>
-                                        <td>Aktif</td>
+                                        <td>{{$student->users->first()->students->first()->nisn ?? 'Belum tersedia'}}</td>
+                                        <td>{{$student->users->first()->name}}</td>
+                                        <td>{{$student->users->first()->students->first()->class ?? 'Belum tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->major ?? 'Belum tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->status ?? 'Belum tersedia'}}</td>
                                         <td>
-                                            <a href="{{route('edit-data.siswa')}}" class="btn btn-warning btn-sm">Edit</a>
-                                            <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
+                                            <a href="{{route('edit-data.siswa')}}" class="btn btn-secondary btn-sm">Edit</a>
+                                            <button type="submit" class="btn btn-secondary btn-sm">Hapus</button>
                                         </td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
