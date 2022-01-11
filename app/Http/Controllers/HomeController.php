@@ -1,48 +1,61 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Auth;
+use App\Student;
 use App\User;
-use App\Register;
-use App\Activity;
+use App\Role;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DataSiswaController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        $data = [
-            'students' => User::whereHas('roles', function ($q) {
-                $q->where('roles.name', '=', 'student');
-            })->count(),
-            'activitys'     => Activity::count(),
-            'registers'     => Register::where('status','peserta')->count(),
-            'pending'       => Register::where('status', 'pending')->count(),
-            'terverifikasi' => Register::where('status', 'terverifikasi')->count(),
-            'delayed'       => Register::where(['user_id'  => Auth::user()->id,'status' => 'pending'])
-                                        ->count(),
-            'verified'       => Register::where(['user_id' => Auth::user()->id, 'status' => 'terverifikasi'])
-                                        ->count(),
-            'participant'   => Register::where(['user_id' => Auth::user()->id, 'status' => 'peserta'])
-                                        ->count(),
-            ];
-        
-        return view('home', $data);
+        $students = Role::with('users')
+                            ->where('name', 'student')
+                            ->latest()
+                            ->paginate(6);
+        return view('data.siswa.index', compact('students'));
+    }
+    public function create()
+    {
+        $roles = Role::all();
+        return view('data.siswa.create', compact('roles'));
+    }
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $request->merge(['password' => bcrypt($request->get('password'))]);
+        if ($user = User::create($request->except('roles'))) {
+            $user->syncRoles($request->get('roles'));
+            if ($user->save()) {
+                $siswa = Student::create([
+                    'user_id' =>  $user->id,
+                    'nisn'  =>  $request->nisn,
+                    'gender'  =>  $request->gender,
+                    'religion'  =>  $request->religion,
+                    'major'  =>  $request->major,
+                    'class'  =>  $request->class,
+                    'phone'  =>  $request->phone,
+                    'status'  =>  $request->status,
+                ]);
+            }
+            flash()->success('Anggota berhasil di tambahkan');
+        } else {
+            flash()->error('tidak dapat menambahkan anggota baru');
+        }
+
+        return redirect()->back();
+    }
+    public function edit()
+    {
+        return view('data.siswa.edit');
     }
 }

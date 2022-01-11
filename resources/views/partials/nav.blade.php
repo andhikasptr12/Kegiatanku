@@ -31,7 +31,7 @@
                 @endrole
             </li>
             <li class="nav-item">
-                <a href="{{route('kegiatan.tampilkan')}}" class="nav-link">Cek Kegiatan</a>
+                <a href="{{route('kegiatan.tampilkan')}}" class="nav-link">{{ __('CEK KEGIATAN') }}</a>
             </ul>
 
             <!-- Right Side Of Navbar -->

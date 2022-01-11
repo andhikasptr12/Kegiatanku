@@ -68,6 +68,3 @@ Route::group(['prefix' => 'pendaftaran'], function(){
     route::get('pending', 'Pendaftaran\PendingController@index')->name('pendaftaran.pending');
     route::get('verified', 'Pendaftaran\VerifiedController@index')->name('pendaftaran.verified');
 });
-
-
-

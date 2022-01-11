@@ -98,7 +98,7 @@
                 <div class="card-body">
                    <div class="d-flex justify-content-between">
                        <div>
-                           <h5>Total Kegiatan</h5>
+                        <h5>Total Peserta</h5>
                            <h6 class="text-secondary">Peserta</h6>
                        </div>
                        <div>
@@ -148,7 +148,7 @@
                        </div>
                        <div>
                            <h3>
-                               {{$terverifikasi}}
+                            {{$verified}}
                             </h3>
                        </div>
                    </div>
