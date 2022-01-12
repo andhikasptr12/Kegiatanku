@@ -44,20 +44,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($students as $student)
+                                @foreach ($students as $student)
+                                        
                                     <tr>
-                                        <td>{{$student->users->first()->students->first()->nisn ?? 'Belum tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->nisn ?? 'belum Tersedia'}}</td>
                                         <td>{{$student->users->first()->name}}</td>
-                                        <td>{{$student->users->first()->students->first()->class ?? 'Belum tersedia'}}</td>
-                                        <td>{{$student->users->first()->students->first()->major ?? 'Belum tersedia'}}</td>
-                                        <td>{{$student->users->first()->students->first()->status ?? 'Belum tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->class ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->major ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->users->first()->students->first()->status ?? 'belum Tersedia'}}</td>
                                         <td>
-                                            <a href="{{route('edit-data.siswa', $student->id)}}",  class="btn btn-secondary btn-sm">Edit</a>
-                                            <button type="submit" class="btn btn-secondary btn-sm">Hapus</button>
+                                            <a href="{{route('edit-data.siswa', $student->users->first()->id)}}" class="btn btn-secondary btn-sm">Edit</a>
+                                            <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
                                         </td>
                                     </tr>
-                                @endforeach
                                 </tbody>
+                                @endforeach
                             </table>
                         </div>
                     </div>

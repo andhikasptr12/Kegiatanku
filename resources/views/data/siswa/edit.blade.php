@@ -15,20 +15,20 @@
                             Silahkan isi dibawah ini dengan benar.
                      </div>
 
-                     <form action="" method="post">
-                         @csrf
-
+                    <form action="{{route('updated.data.siswa', $user->id)}}" method="post">
+                        @csrf
+                        @method('PATCH')
                          <div class="row">
                              <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="">NISN</label>
-                                 <input type="text" name="nisn" class="form-control" id="" value="{{$user->students->first()->nisn ?? 'Belum tersedia'}}"> 
+                                 <input type="text" name="nisn" class="form-control" id="" value="{{$user->students->first()->nisn ?? 'Belum Tersedia'}}">
                                  </div>
                              </div>
                              <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="">Nama</label>
-                                     <input type="text" name="nama" class="form-control" id="" plachecolder="isi nama siswa">
+                                     <input type="text" class="form-control" id="" value="{{$user->name}}">
                                  </div>
                              </div>
                                  <div class="col-md-3">
@@ -79,15 +79,14 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="No HP">No HP</label>
-                                        <input type id="" class="form-control"value="{{$user->students->first()->phone ?? 'Belum tersedia'}}">
-                                        </select>
+                                        <label for="" >Nomor Hp</label>
+                                        <input type="text" name="phone" id="" class="form-control" value="{{$user->students->first()->phone ?? 'Belum Tersedia'}}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="">Status</label>
-                                        <select name="" id="" class="form-control" value="{{$user->name}}">
+                                        <select name="status" id="" class="form-control">
                                             <option value="">Silahkan Pilih Status</option>
                                             <option value="Aktif">Aktif</option>
                                             <option value="Non-Aktif">Non-Aktif</option>

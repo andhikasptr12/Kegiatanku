@@ -9,10 +9,10 @@
              </nav>
         <div class="row">
             <div class="col-md-12">
-                <div class="card" style="width: 1150px">
+                <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
-                            <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-secondary">Tambah Kegiatan</a>
+                            <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-success">Tambah Kegiatan</a>
                         </div>
                         <form action="" method="post">
                             <div class="row">
@@ -27,22 +27,20 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-secondary" type="submit">Cari Data</button>
+                                    <button class="btn btn-success" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>
                         <div class="mt-3">
-                            <table class="table table-striped" style="width: 1150px"> 
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Kode Kegiatan</th>
                                         <th>Nama Kegiatan</th>
                                         <th>IDR</th>
                                         <th>Status</th>
-                                        <th>Keterangan</th>
-                                        <th>Jumlah Peserta</th>
-                                        <th>tgl mulai</th>
-                                        <th>tgl selesai</th>
+                                        
+                                        
                                         <th>Option</th>
                                     </tr>
                                 </thead>
@@ -53,17 +51,14 @@
                                             <td>{{$it->nama_activity}}</td>
                                             <td>{{$it->idr}}</td>
                                             <td>{{$it->status}}</td>
-                                            <td>{{$it->desc}}</td>
-                                            <td>{{$it->jumlah_peserta}}</td>
-                                            <td>{{$it->tgl_awal}}</td>
-                                            <td>{{$it->tgl_selesai}}</td>
+                                            
                                         
                                         <td>
                                             <form action="{{route('manage-kegiatan.delete', $it->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                            <a href="{{route('manage-kegiatan.add-form.edit-kegiatan', $it->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                                             <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
+                                            <a href="{{route('manage-kegiatan.add-form.edit-kegiatan', $it->id)}}" class="btn btn-secondary btn-sm">Edit</a>
+                                            <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
                                         </form>
                                            
                                         </td>
