@@ -24,7 +24,14 @@ class DataSiswaController extends Controller
 
         return view('data.siswa.create', compact('roles'));
     }
-    
+    public function edit($id)
+    {
+        $array = [
+            'user' =>User::findOrFail($id),
+            'role' =>Role::pluck('name', 'id')
+        ];
+    return view('data.siswa.edit', $array);
+}
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -56,10 +63,4 @@ class DataSiswaController extends Controller
 
             return redirect()->back();
         }
-
-
-        public function edit()
-        {
-        return view('data.siswa.edit');
-    }
 }
