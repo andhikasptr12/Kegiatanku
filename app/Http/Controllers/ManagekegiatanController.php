@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Activity;
+
 class ManagekegiatanController extends Controller
 {
     public function index()
@@ -75,12 +76,12 @@ class ManagekegiatanController extends Controller
         flash()->success('Data Kegiatan berhasil dihapus');
         return redirect(route('manage-kegiatan'));
     }
-    public function update(Request $request,$id)
+    public function update(Request $request, Activity $activity)
     {
-        $kegiatan = Activity::findOrFail($id);
+        $activity->update($request->all());
         
-        $kegiatan->update($request->all());
-
+        $this->storeImage($activity);
+        
         return redirect()->back();
     }
 }

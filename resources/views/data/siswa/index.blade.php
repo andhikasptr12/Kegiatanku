@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
-                            <a href="{{route('tambah-data.siswa')}}" class="btn btn-secondary">Tambah Siswa</a>
+                            <a href="{{route('tambah-data.siswa')}}" class="btn btn-success">Tambah Siswa</a>
                         </div>
                         <form action="" method="post">
                             <div class="row">
@@ -47,14 +47,18 @@
                                 @foreach ($students as $student)
                                         
                                     <tr>
-                                        <td>{{$student->users->first()->students->first()->nisn ?? 'belum Tersedia'}}</td>
-                                        <td>{{$student->users->first()->name}}</td>
-                                        <td>{{$student->users->first()->students->first()->class ?? 'belum Tersedia'}}</td>
-                                        <td>{{$student->users->first()->students->first()->major ?? 'belum Tersedia'}}</td>
-                                        <td>{{$student->users->first()->students->first()->status ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->students->first()->nisn ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->name}}</td>
+                                        <td>{{$student->students->first()->class ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->students->first()->major ?? 'belum Tersedia'}}</td>
+                                        <td>{{$student->students->first()->status ?? 'belum Tersedia'}}</td>
                                         <td>
-                                            <a href="{{route('edit-data.siswa', $student->users->first()->id)}}" class="btn btn-secondary btn-sm">Edit</a>
-                                            <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
+                                            <form action="{{route('destroy.data.siswa', $student->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{route('edit-data.siswa', $student->id)}}" class="btn btn-secondary btn-sm">Edit</a>
+                                                <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>
