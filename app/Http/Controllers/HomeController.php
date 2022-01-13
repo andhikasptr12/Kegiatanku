@@ -1,61 +1,49 @@
 <?php
+
 namespace App\Http\Controllers;
-use App\Student;
+
 use App\User;
-use App\Role;
+use App\Activity;
+use App\Register;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
-class DataSiswaController extends Controller
+class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        $students = Role::with('users')
-                            ->where('name', 'student')
-                            ->latest()
-                            ->paginate(6);
-        return view('data.siswa.index', compact('students'));
-    }
-    public function create()
-    {
-        $roles = Role::all();
-        return view('data.siswa.create', compact('roles'));
-    }
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        $request->merge(['password' => bcrypt($request->get('password'))]);
-        if ($user = User::create($request->except('roles'))) {
-            $user->syncRoles($request->get('roles'));
-            if ($user->save()) {
-                $siswa = Student::create([
-                    'user_id' =>  $user->id,
-                    'nisn'  =>  $request->nisn,
-                    'gender'  =>  $request->gender,
-                    'religion'  =>  $request->religion,
-                    'major'  =>  $request->major,
-                    'class'  =>  $request->class,
-                    'phone'  =>  $request->phone,
-                    'status'  =>  $request->status,
-                ]);
-            }
-            flash()->success('Anggota berhasil di tambahkan');
-        } else {
-            flash()->error('tidak dapat menambahkan anggota baru');
-        }
+        $data = [
+            'students' => User::whereHas('roles', function ($q) {
+                                    $q->where('roles.name', '=', 'student');
+                                })->count(),
+            'activitys' => Activity::count(),
+            'registers' => Register::Where('status','peserta')->count(),
+            'pending' => Register::where('status','pending')->count(),
+            'terverifikasi' => Register::where('status','terverifikasi')->count(),
+            'delayed' => Register::where(['user_id' => Auth::user()->id, 'status' => 'pending'])
+                                ->count(),
+            'verified' => Register::where(['user_id' => Auth::user()->id, 'status' => 'terverifikasi'])
+                                ->count(),
+            'participant' => Register::where(['user_id' => Auth::user()->id, 'status' => 'peserta'])
+                                ->count(),
+        ];
 
-        return redirect()->back();
-    }
-    public function edit()
-    {
-        return view('data.siswa.edit');
+        return view('home', $data);
     }
 }

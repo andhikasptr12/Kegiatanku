@@ -67,11 +67,15 @@ class ManagekegiatanController extends Controller
             $image->save();
         }
     }
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $kegiatan =  Activity::findOrFail($id);
+        $activity =  Activity::findOrFail($id);
 
-        $kegiatan->delete();
+        $activity->delete();
+
+        if (\File::exists(public_path('storage/' . $activity->image))) {
+            \File::delete(public_path('storage/' . $activity->image));
+        }
 
         flash()->success('Data Kegiatan berhasil dihapus');
         return redirect(route('manage-kegiatan'));
