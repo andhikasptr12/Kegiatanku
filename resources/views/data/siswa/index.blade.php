@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-secondary" type="submit">Cari Data</button>
+                                    <button class="btn btn-success" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>
@@ -56,7 +56,7 @@
                                             <form action="{{route('destroy.data.siswa', $student->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{route('edit-data.siswa', $student->id)}}" class="btn btn-secondary btn-sm">Edit</a>
+                                                <a href="{{route('edit-data.siswa', $student->id)}}" class="btn btn-success btn-sm">Edit</a>
                                                 <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
                                             </form>
                                         </td>
