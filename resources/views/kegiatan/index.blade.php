@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-success">Tambah Kegiatan</a>
-                            <a href="{{route('cetak.semua-data.activity')}}" class="btn btn-success">Cetak semua data</a>
+                            <a href="{{route('cetak.semua-data.activity')}}" class="btn btn-danger">Cetak semua data</a>
                         </div>
                         <form action="{{route('cetak.activity')}}" method="get">
                             <div class="row">
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-success" type="submit">Cari Data</button>
+                                    <button class="btn btn-danger" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>

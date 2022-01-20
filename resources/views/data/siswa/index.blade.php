@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-success" type="submit">Cari Data</button>
+                                    <button class="btn btn-danger" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>
