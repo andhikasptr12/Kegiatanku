@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
     <div class="container">
         <a class="navbar-brand" href="{{ route('/') }}">
             KEGIATAN KU
@@ -14,23 +14,28 @@
                     <a href="{{url('/')}}" class="nav-link">Welcome Page</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{route('dashboard.index')}}" class="nav-link text white">DASHBOARD</a>
-                </li>
-                @role('admin')
-                <li class="nav-item">
-                    <a href="{{route('data.siswa')}}" class="nav-link text white">DATA SISWA</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('manage-kegiatan')}}" class="nav-link text white">MANAGE KEGIATAN</a>
-                </li>
-                @endrole
-                @role('bendahara')
-                <li class="nav-item">
-                    <a href="{{route('verifikasi-pendaftaran')}}" class=" text white">VERIFIKASI PENDAFTARAN</a>
-                </li>
-                @endrole
-            </li>
-            </ul>
+                    <li class="nav-item hover">
+                        <a href="{{route('dashboard.index')}}" class="nav-link text-white">DASHBOARD</a>
+                    </li>
+                    @role('admin')
+                    <li class="nav-item hover">
+                        <a href="{{route('data.siswa')}}" class="nav-link text-white">DATA SISWA</a>
+                    </li>
+                    <li class="nav-item hover">
+                        <a href="{{route('manage-kegiatan')}}" class="nav-link text-white">MANAGE KEGIATAN</a>
+                    </li>
+                    @endrole
+                    @role('bendahara')
+                    <li class="nav-item hover">
+                        <a href="{{route('verifikasi-pendaftaran')}}" class="nav-link text-white">VERIFIKASI PENDAFTARAN</a>
+                    </li>
+                    @endrole
+                    @role('student')
+                    <li class="nav-item hover">
+                        <a href="{{route('/')}}" class="nav-link text-white">{{ __('CEK KEGIATAN') }}</a>
+                    </li>
+                    @endrole
+                </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

@@ -10,8 +10,8 @@ class WelcomeController extends Controller
     public function index()
     {
         $data = [
-            'kegiatans'=>Activity::latest()->paginate(3),
-            'activitys'=>Activity::all()->all(),
+            'kegiatans' => Activity::get(),
+            'activitys' => Activity::latest()->get(),
         ];
 
         return view('index', $data);

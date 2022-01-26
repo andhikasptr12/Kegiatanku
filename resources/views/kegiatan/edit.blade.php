@@ -15,7 +15,7 @@
                             Silahkan isi dibawah ini dengan benar.
                      </div>
 
-                     <form action="{{route('updated.data.kegiatan', $kegiatan->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('updated.data.kegiatan', $kegiatan->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                          <div class="row">
@@ -33,8 +33,8 @@
                              </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="">image</label>
-                                        <input type="file" name="image" class="form-control" id="" value="">
+                                        <label for="">Image</label>
+                                        <input type="file" name="image" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label for="">Status</label>
                                         <select name="status" id="" class="form-control">
-                                            <option value="{{$kegiatan->id}}">{{$kegiatan->status}}</option>
+                                            <option value="">Pilih Status</option>
                                             <option value="Aktif">Aktif</option>
                                             <option value="Non-Aktif">Non-Aktif</option>
                                         </select>
@@ -73,8 +73,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="">Jumlah Peserta</label>
-                                        <input type="number" name="jumlah_peserta" id="" class="form-control" value="{{$kegiatan->jumlah_peserta}}">
+                                       <label for="">Jumlah Peserta</label> 
+                                       <input type="number" name="jumlah_peserta" id="" class="form-control" value="{{$kegiatan->jumlah_peserta}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

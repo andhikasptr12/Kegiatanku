@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('welcome')
 
 @section('content')
     <div class="container">
@@ -7,30 +7,38 @@
                 <li class="breadcrumb-item active" aria-current="page"> Data Siswa</li> 
                </ol>
              </nav>
-        <div class="row">
+             <div class="row mb-3" style="margin-top: -70px">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card border-0">
                     <div class="card-body">
                         <div class="mb-3">
                             <a href="{{route('tambah-data.siswa')}}" class="btn btn-success">Tambah Siswa</a>
+                            <a href="{{route('tambah-data.siswa')}}" class="btn btn-success">Simpan Data Siswa</a>
                         </div>
                         <form action="" method="post">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <div class="form-group">
                                         <input type="date" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <div class="form-group">
                                         <input type="date" class="form-control">
                                     </div>
-                                </div>
-                                <div>
-                                    <button class="btn btn-danger" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card border-0">
+                    <div class="card-body">
                         <div class="mt-3">
                             <table class="table table-striped">
                                 <thead>
