@@ -15,15 +15,15 @@
                         </div> 
                         <div class="row">
                             <div class="col">
-                                <p class="text-muted">101213</p>
-                                <p class="text-muted">merayakan HUT RI-76</p>
-                                <p class="text-muted">17-08-2021</p>
-                                <p class="text-muted">Seluruh siswa/i Smk Al-Bahri</p>
-                                <p class="text-muted">Sanz Tapi enakeunnnnn</p>   
+                                <p class="text-muted">14124</p>
+                                <p class="text-muted">Rapat osis</p>
+                                <p class="text-muted">10-28-2021</p>
+                                <p class="text-muted">AB</p>
+                                <p class="text-muted">Tersedia</p>   
                            </div>
                         </div>
                     </div>
-                    <p class=" text-muted">Hii semuanya.. Mari ramaikan kegiatan  ini dan bersenang senang hayyyuuuukkkk....!</p   >
+                    <p class=" text-muted">Hallo , Yuk datang dan ramaikan acara pensi tahunan Yang diselanggarakan untuk memperingati Ulang Tahun Sekolah kita dijamin seru loh..!</p   >
             </div>
             <div class="row">
                 <div class="card ml-5" style="height: 19rem; width:46rem; border-radius: 8px;">
@@ -77,7 +77,7 @@
                        </div>
                   </div>
                         <button class="btn btn-outline-success btn-md mt-4" style="padding: 5px; border-radius: 5px; width:11.5rem; border-width: thin;
-                          cursor: pointer;">Simpan Perubahan</button>
+                        cursor: pointer;">Simpan Perubahan</button>
                     </div>
                 </div>
             </div>

@@ -1,20 +1,16 @@
-@extends('welcome')
+@extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"> Data Kegiatan</li> 
-               </ol>
-             </nav>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-success">Tambah Kegiatan</a>
-                            <a href="{{route('cetak.semua-data.activity')}}" class="btn btn-danger">Cetak semua data</a>
-                        </div>
+
+<div class="container">
+    <div class="row mb-3" style="margin-top: -70px">
+        <div class="col-md-12">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-success">Tambah Kegiatan</a>
+                        <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-success">Cetak semua data</a>
+                    </div>
                         <form action="{{route('cetak.activity')}}" method="get">
                             <div class="row">
                                 <div class="col-md-3">
@@ -28,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-danger" type="submit">Cari Data</button>
+                                    <button class="btn btn-success" type="submit">Cari Data</button>
                                 </div>
                             </div>
                         </form>
@@ -41,8 +37,6 @@
                                         <th>IDR</th>
                                         <th>Status</th>
                                         <th>Tanggal</th>
-                                        
-                                        
                                         <th>Option</th>
                                     </tr>
                                 </thead>
@@ -54,15 +48,15 @@
                                             <td>{{$activity->idr}}</td>
                                             <td>{{$activity->status}}</td>
                                             <td>{{$activity->created_at->format('Y-m-d')}}</td>
-                                            
                                         
                                         <td>
-                                            <form action="{{route('manage-kegiatan.delete', $activity->id) }}" method="post">
+                                            <form action="{{route('destroy.data.activity', $activity->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                            <a href="{{route('manage-kegiatan.add-form.edit-kegiatan', $activity->id)}}" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="{{route('edit-data.activity', $activity->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                             <button type="submit" class=" btn btn-danger btn-sm">Hapus</button>
                                         </form>
+                                           
                                         </td>
                                     </tr>
                                     @endforeach
