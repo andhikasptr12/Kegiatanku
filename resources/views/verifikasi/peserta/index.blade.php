@@ -57,7 +57,7 @@
                                                 {{$register->status}}</td>
                                             </span>       
                                         <td>
-                                            <button type="submit" class=" btn btn-info btn-sm">Cetak Sertifikat</button>
+                                            <a href="{{route('cetak.sertifikat', $register->id)}}" class="btn btn-info btn-sm">Cetak Sertifikat</a>
                                         </td>
                                     </tr>
                                     @endforeach

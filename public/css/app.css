@@ -10943,17 +10943,18 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #ffff;
+  background-color: #f7f8fd;
   opacity: 1;
 }
 
 .navbar-laravel {
-  background-image: linear-gradient(to right, #1D2671, #C33764);
-  box-shadow: 0 2px 4px #ffff 0, 0, 0, 0.04;
+  background-image: linear-gradient(to right, #ffff1c, #00c3ff);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  color: #ffff;
 }
 
 .jumbotron {
-  background-image: linear-gradient(to right #1D2671, #C33764);
+  background-image: linear-gradient(to right, #ffff1c, #00c3ff);
   color: #ffff;
   background-position: center;
   background-size: cover;

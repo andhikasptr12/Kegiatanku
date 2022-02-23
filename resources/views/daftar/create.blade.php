@@ -1,7 +1,5 @@
-@extends('layouts.app')
-
+@extends('welcome')
 @section('content')
-
 <div class="container mb-3">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -18,18 +16,13 @@
                                 </p>
                                 <div>
                                     <h6>Start {{$activity->tgl_awal}} - {{$activity->tgl_selesai}}</h6>
-                                    <h6>{{$activity->jumlah_peserta}} - Seat</h6>
+                                    <h6>{{$activity->peserta}} - Seat</h6>
                                     <h6>IDR {{number_format($activity->idr,2)}}</h6>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            @if ($activity->status == 'Aktif')
-                            <h6 class="text-success">{{$activity->status}}</h4>
-                            @else
-                                <h4 class="text-muted">{{$activity->status}}</h4>
-                            @endif
-                            
+                            <h3 class="text-info">{{$activity->status}}</h3>
                         </div>
                     </div>
                 </div>
@@ -39,6 +32,7 @@
                     <form action="{{route('kegiatan.store')}}" method="post">
                         @csrf
                         <div class="row">
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Nama</label>
@@ -61,7 +55,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jumlah Tiket</label>
-                                    <input type="text" class="form-control" name="qty">
+                                    <input type="number" name="qty" class="form-control" >
                                 </div>
                             </div>
                             <input type="hidden" name="status" class="form-control" value="pending">
@@ -75,5 +69,4 @@
         </div>
     </div>
 </div>
-
 @endsection

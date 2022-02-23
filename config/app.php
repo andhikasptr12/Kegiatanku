@@ -169,6 +169,7 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'View' => Intervention\Image\hcades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
 
 ];
