@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Register;
 use PDF;
 use App\Activity;
+use Milon\Barcode\DNS1D;
 use Illuminate\Support\Facades\Auth;
 
 class VerifiedController extends Controller
@@ -20,7 +21,7 @@ class VerifiedController extends Controller
     public function sertifikat($id)
     {
         $sertifikat = Register::findOrFail($id);
-
+        
         $pdf = PDF::loadView('cetak.sertifikat', compact('sertifikat'))->setPaper('a4', 'landscape');
 
         return $pdf->stream('sertifikat.pdf');

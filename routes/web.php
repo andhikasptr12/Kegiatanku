@@ -87,3 +87,4 @@ Route::group(['prefix' => 'activity'], function(){
 
 route::get('cetak/sertifikat/{register}', 'Pendaftaran\VerifiedController@sertifikat')->name('cetak.sertifikat');
 });
+Route::get('resoult/{register}','ResoulController@show')->name('resoult');

@@ -170,6 +170,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -230,6 +231,8 @@ return [
         'View' => Intervention\Image\hcades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
     ],
 
 ];

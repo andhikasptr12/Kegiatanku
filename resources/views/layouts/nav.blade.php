@@ -15,28 +15,28 @@
                 </li> --}}
                 @auth()
                 <li class="nav-item hover">
-                    <a href="{{route('dashboard.index')}}" class="nav-link text-dark">DASHBOARD</a>
+                    <a href="{{route('dashboard.index')}}" class="nav-link text-light">DASHBOARD</a>
                 </li>
                 @endauth
                 @role('admin')
                 <li class="nav-item hover">
-                    <a href="{{route('data.siswa')}}" class="nav-link text-dark">DATA SISWA</a>
+                    <a href="{{route('data.siswa')}}" class="nav-link text-light">DATA SISWA</a>
                 </li>
                 <li class="nav-item hover">
-                    <a href="{{route('manage-kegiatan')}}" class="nav-link text-dark">MANAGE KEGIATAN</a>
+                    <a href="{{route('manage-kegiatan')}}" class="nav-link text-light">MANAGE KEGIATAN</a>
                 </li>
                 @endrole
                 @role('bendahara')
                 <li class="nav-item hover">
-                    <a href="{{route('verifikasi-pendaftaran')}}" class="nav-link text-dark">VERIFIKASI PENDAFTARAN</a>
+                    <a href="{{route('verifikasi-pendaftaran')}}" class="nav-link text-light">VERIFIKASI PENDAFTARAN</a>
                 </li>
                 @endrole
                 @role('student')
                 <li class="nav-item hover">
-                    <a href="{{route('/')}}" class="nav-link text-dark">{{ __('CEK KEGIATAN') }}</a>
+                    <a href="{{route('/')}}" class="nav-link text-light">{{ __('CEK KEGIATAN') }}</a>
                 </li>
                 <li class="nav-item hover">
-                    <a href="{{route('activity')}}" class="nav-link text-dark">Kegiatanku</a>
+                    <a href="{{route('activity')}}" class="nav-link text-light">Kegiatanku</a>
                 </li>
                 @endrole
             </ul>
