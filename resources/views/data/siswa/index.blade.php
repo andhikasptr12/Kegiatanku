@@ -24,6 +24,7 @@
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-success">Simpan Data Siswa</button>
+                                <button class="btn btn-success" type="submit">Cari Data</button>
                             </div>
                         </div>
                     </form>

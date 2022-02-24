@@ -87,9 +87,9 @@
             <div class="jumbotron">
                 <div class="container">
                     <div>
-                        <h5 class="text-white">Manage Event</h5>
-                        <h3 class="text-white">SMK AL-BAHRI</h3>
-                        <p class="text-white">
+                        <h5 class="text-dark">Manage Event</h5>
+                        <h3 class="text-dark">SMK AL-BAHRI</h3>
+                        <p class="text-dark">
                             Jl. Yon Armed 7 No.143, RT.003/RW.006, Cikiwul, Bantargebang, Kota Bks, Jawa Barat 17152
                         </p>
                     </div>
